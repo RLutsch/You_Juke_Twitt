@@ -15,13 +15,13 @@
 //	$url = "https://api.twitter.com/1.1/statuses/user_timeline.json";
 	$url = "https://api.twitter.com/1.1/search/tweets.json";
 	$requestMethod = "GET";
-	$getfield = '?q=#wethinkcode&count=20';
+	$getfield = '?q=#wtc_request&count=20';
 //	$twitter = new TwitterAPIExchange($settings);
 //	$twitter->setGetfield($getfield)
 //    ->buildOauth($url, $requestMethod)
 //     ->performRequest();
 //	$getfield = '?screen_name=lutschross&count=20';
-	$twitter = new TwitterAPIExchange($settings);
+$twitter = new TwitterAPIExchange($settings);
 	$string = json_decode($twitter->setGetfield($getfield)
 		->buildOauth($url, $requestMethod)
     	->performRequest(),$assoc = TRUE);
@@ -39,6 +39,10 @@
 	echo "<pre>";
 //    print_r(array_values($string));
     echo "</pre>";
-    ?> 
+	$secondsWaiti = 1;
+	header("Refresh:$secondsWait");
+	echo date('Y-m-d H:i:s');
+	echo '<script type="text/javascript">location.reload(true);</script>';  
+?> 
 </body>
 </html>
