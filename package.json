@@ -1,0 +1,26 @@
+{
+  "name": "twit_test",
+  "version": "0.0.1",
+  "description": "twitter jukebox",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RLutsch/You_Juke_Twitt.git"
+  },
+  "keywords": [
+    "twitter",
+    "juke",
+    "box"
+  ],
+  "author": "Ross + Victor",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/RLutsch/You_Juke_Twitt/issues"
+  },
+  "dependencies": {
+    "express": "~4.14.0"
+  }
+}
