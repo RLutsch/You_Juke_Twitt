@@ -1,26 +1,53 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-	<head>
-		<title>Cloud</title>
-	</head>
-    <body>
-	<script src="https://connect.soundcloud.com/sdk/sdk-3.1.2.js"></script>
-	<script>
-		SC.initialize({
-  		client_id: '1698f61ef0bd9cf032d6bf076e745e5f'
-		});
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="stylesheets/styles.css" media="screen" title="no title" charset="utf-8">
+  </head>
+  <body>
+      <div id="svg-container" style="overflow:hidden; width: 0px; height: 0px;"></div>
 
-		SC.get('/tracks', {
- 			q: 'buskers', license: 'cc-by-sa'
-		}).then(function(tracks) {
-		  console.log(tracks);
-		  var track = tracks[0]['uri'].split('/');
-		  SC.stream('/' + track[3] + '/' + track[4]).then(function(player){
-			player.play();
-		  console.log(player.on('finish', document.write("finish")));
-		  document.write("pass");
-});
-		});
-	</script>
-    </body>
+      <div class="logo">
+        <svg class="icon">
+          <use xlink:href="#atc-logo"></use>
+        </svg>
+        <svg class="icon">
+          <use xlink:href="#atc-logo"></use>
+        </svg>
+        <svg class="icon">
+          <use xlink:href="#atc-logo"></use>
+        </svg>
+      </div>
+
+      <div class="welcome" data-text="// Welcome WE THINK CODE_ ers!">// Welcome WE THINK CODE_ ers!</div>
+
+      <div id="messages"></div>
+
+      <script src="/socket.io/socket.io.js"></script>
+      <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+      <script src="https://npmcdn.com/masonry-layout@4.1/dist/masonry.pkgd.js"></script>
+      <script>
+          $(document).ready(function(){
+            $.get('ATC.svg').then(function(svg){
+                $("svg", svg).prependTo('#svg-container');
+            });
+            var $messages = $('#messages');
+
+            $messages.masonry({
+              itemSelector: 'div'
+            });
+
+            var socket = io();
+
+            socket.on('tweet', function(tweet){
+              // Prepend the tweet.
+              $messages.prepend('<div>' + tweet.name + ": <br /> " + tweet.text + '</div>');
+              $messages.masonry( 'reloadItems' );
+              $messages.masonry( 'layout' );
+
+            });
+          });
+      </script>
+  </body>
 </html>
