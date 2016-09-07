@@ -10,21 +10,20 @@
   <body>
    <section class="container">
    <div class="row">
-      <div class="col-lg-3">
+      <div class="col-lg-12">
+        <h1>WeThinkCode_</h1>
+      </div>
+    </div>
+      <div class="row">
+        <section class="col-sm-3 col-lg-3">
         <header class="clearfix">
           <section id="branding">
             <img src="img/wtc_logo.png" width="100" height="100">
           </section>
         </header>
-      </div>
-      <div class="col-lg-9">
-        <h1>WeThinkCode_</h1>
-      </div>
-    </div>
-      <div class="row">
-        <section class="col-sm-3">
+        <h3>See your update here</h3>
         </section> <!-- sidebar -->
-        <section class="col-sm-9 main">
+        <section class="col-sm-9 main col-lg-9">
           <div class="row" id="messages"></div>
         </section> <!-- main -->
       </div>
@@ -34,6 +33,7 @@
       <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
       <script src="js/bootstrap.min.js"></script>
       <script src="https://npmcdn.com/masonry-layout@4.1/dist/masonry.pkgd.js"></script>
+      <script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
       <script>
           $(document).ready(function(){
             $.get('ATC.svg').then(function(svg){
@@ -49,7 +49,7 @@
 
             socket.on('tweet', function(tweet){
               // Prepend the tweet.
-              $messages.prepend('<div class="col-sm-4">' + tweet.name + ": <br /> " + tweet.text + '</div>');
+              $messages.prepend('<div class="col-sm-4"><blockquote class="twitter-tweet">' + tweet.name + ": <br /> " + tweet.text + '</blockquote></div>');
               $messages.masonry( 'reloadItems' );
               $messages.masonry( 'layout' );
 

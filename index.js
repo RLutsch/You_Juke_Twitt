@@ -22,7 +22,7 @@ var T = new Twit({
 });
 
 var stream = T.stream("statuses/filter", {
-    track: "#javascript, @bbdsoftware, #WTC, @wethinkcode, #nelsonmandelachallenge"
+    track: "#javascript, @bbdsoftware, #WTC, @wethinkcode, #highschoolin5words"
 });
 
 stream.on("tweet", function(status) {
