@@ -56,7 +56,9 @@
       <script src="js/bootstrap.min.js"></script>
       <script src="https://npmcdn.com/masonry-layout@4.1/dist/masonry.pkgd.js"></script>
       <script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-      <script>
+	<script src="https://connect.soundcloud.com/sdk/sdk-3.1.2.js"></script>
+	<script src = "sound.js"></script>  
+	<script>
           $(document).ready(function(){
             $.get('ATC.svg').then(function(svg){
                 $("svg", svg).prependTo('#svg-container');
@@ -71,7 +73,8 @@
 
             socket.on('tweet', function(tweet){
               // Prepend the tweet.
-              $messages.prepend('<div class="col-sm-4"><blockquote class="twitter-tweet">' + tweet.text + " <br /> <br>- " + tweet.name + '(<a href="https://twitter.com/' + tweet.username + '">@' + tweet.username + '</a>)</blockquote></div>');
+              search_song(tweet.text);
+				$messages.prepend('<div class="col-sm-4"><blockquote class="twitter-tweet">' + tweet.text + " <br /> <br>- " + tweet.name + '(<a href="https://twitter.com/' + tweet.username + '">@' + tweet.username + '</a>)</blockquote></div>');
               $messages.masonry( 'reloadItems' );
               $messages.masonry( 'layout' );
 

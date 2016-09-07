@@ -26,11 +26,11 @@ var stream = T.stream("statuses/filter", {
 });
 
 stream.on("tweet", function(status) {
-    // console.log({
-    //     name: status.user.screen_name,
-    //     text: status.text,
-    //     created_at: status.created_at,
-    // });
+     console.log({
+         name: status.user.screen_name,
+         text: status.text,
+         created_at: status.created_at,
+    });
 
     io.emit("tweet", {
         username: status.user.screen_name,
