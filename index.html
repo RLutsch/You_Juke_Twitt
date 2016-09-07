@@ -1,35 +1,62 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
-    <title></title>
-    <link rel="stylesheet" href="stylesheets/styles.css" media="screen" title="no title" charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>WeThinkCode_ Meet your Corporate Sponsor Day</title>
+    <link href="css/theme.bootstrap.min.css" rel="stylesheet">
+     <link rel="stylesheet" type="text/css" href="css/ico.css">
+    <link rel="stylesheet" type="text/css" href="css/wtc.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
   </head>
   <body>
-      <div id="svg-container" style="overflow:hidden; width: 0px; height: 0px;"></div>
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" style="height:100px; background-color:#fff;">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">
+        <img src="img/wtc_logo.png" width="100" height="100" style="margin-left:100px">
+      </a>
+    </div>
+  </div>
+</nav>
+ <div class="sidebar">
+      <h3>Add your content to this wall</h3>
+      <br>
+      <br>
+      <p><i class="icon-twitter"></i> twitter</p>
+      <div class="well">#WTC</div>
+      <div class="well">#RECODE</div>
+    </div>
+    <!-- Page Content -->
+    <div class="container">
+   
+        <div class="row">
+        <!-- <div class="col-lg-3">
+          <h1>Hello world</h1>
+        </div> -->
+            <div class="col-lg-12" style="margin-top:10px">
+              <div id="messages"></div>
+            </div>
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
 
-      <div class="logo">
-        <svg class="icon">
-          <use xlink:href="#"></use>
-        </svg>
-        <svg class="icon">
-          <use xlink:href="#"></use>
-        </svg>
-        <svg class="icon">
-          <use xlink:href="#"></use>
-        </svg>
-      </div>
 
-      <div class="welcome" data-text="// Welcome Sponsors"># Welcome</div>
-
-      <div id="messages"></div>
-
-      <script src="/socket.io/socket.io.js"></script>
-      <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+      <script src="js/bootstrap.min.js"></script>
       <script src="https://npmcdn.com/masonry-layout@4.1/dist/masonry.pkgd.js"></script>
-	<script src="https://connect.soundcloud.com/sdk/sdk-3.1.2.js"></script>
-	<script src = "sound.js"></script>
-	<script>
+      <script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+      <script>
           $(document).ready(function(){
             $.get('ATC.svg').then(function(svg){
                 $("svg", svg).prependTo('#svg-container');
@@ -44,8 +71,7 @@
 
             socket.on('tweet', function(tweet){
               // Prepend the tweet.
-			  search_song(tweet.text);
-              $messages.prepend('<div>' + tweet.name + ": <br /> " + tweet.text + '</div>');
+              $messages.prepend('<div class="col-sm-4"><blockquote class="twitter-tweet">' + tweet.text + " <br /> <br>- " + tweet.name + '(<a href="https://twitter.com/' + tweet.username + '">@' + tweet.username + '</a>)</blockquote></div>');
               $messages.masonry( 'reloadItems' );
               $messages.masonry( 'layout' );
 
