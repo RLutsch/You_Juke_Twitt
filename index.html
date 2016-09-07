@@ -10,24 +10,25 @@
 
       <div class="logo">
         <svg class="icon">
-          <use xlink:href="#atc-logo"></use>
+          <use xlink:href="#"></use>
         </svg>
         <svg class="icon">
-          <use xlink:href="#atc-logo"></use>
+          <use xlink:href="#"></use>
         </svg>
         <svg class="icon">
-          <use xlink:href="#atc-logo"></use>
+          <use xlink:href="#"></use>
         </svg>
       </div>
 
-      <div class="welcome" data-text="// Welcome WE THINK CODE_ ers!">// Welcome WE THINK CODE_ ers!</div>
+      <div class="welcome" data-text="// Welcome Sponsors"># Welcome</div>
 
       <div id="messages"></div>
 
       <script src="/socket.io/socket.io.js"></script>
       <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
       <script src="https://npmcdn.com/masonry-layout@4.1/dist/masonry.pkgd.js"></script>
-      <script>
+	<script src = "sound.html"></script>
+	<script>
           $(document).ready(function(){
             $.get('ATC.svg').then(function(svg){
                 $("svg", svg).prependTo('#svg-container');
@@ -42,6 +43,7 @@
 
             socket.on('tweet', function(tweet){
               // Prepend the tweet.
+				function playsound(tweet.text);
               $messages.prepend('<div>' + tweet.name + ": <br /> " + tweet.text + '</div>');
               $messages.masonry( 'reloadItems' );
               $messages.masonry( 'layout' );
