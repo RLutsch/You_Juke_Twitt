@@ -22,19 +22,20 @@ var T = new Twit({
 });
 
 var stream = T.stream("statuses/filter", {
-    track: "#javascript, @bbdsoftware, #WTC, @wethinkcode, #highschoolin5words"
+    track: "#WTC, @wethinkcode, #highschoolin5words"
 });
 
 stream.on("tweet", function(status) {
-    console.log({
-        name: status.user.screen_name,
-        text: status.text,
-        created_at: status.created_at
-    });
+    // console.log({
+    //     name: status.user.screen_name,
+    //     text: status.text,
+    //     created_at: status.created_at,
+    // });
 
     io.emit("tweet", {
-        name: status.user.screen_name,
+        username: status.user.screen_name,
+        name: status.user.name,
         text: status.text,
-        created_at: status.created_at
+        created_at: status.created_at,
     });
 });

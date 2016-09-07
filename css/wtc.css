@@ -4,14 +4,58 @@
 .main {
 	/*background-color: blue;*/
 }
-html, body {
+body { padding-top: 100px; 
 	background-image: url('../img/wtc_bg.jpg');
-	background-size: cover;
+	background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }
+
 h1 {
 	text-align: center;
 	color: #fff;
 }
+
+.navbar-brand
+{
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar {
+     position: fixed;
+     padding-top: 100px;
+     width: 300px;
+     font-family: Arial, sans-serif !important;
+    top: 0;
+    bottom: 0;
+    margin-left: 20px;
+ }
+ .sidebar h3 {
+ 	text-align: center;
+ }
+ .sidebar p {
+ 	font-size: 18px;
+ }
+ .icon-twitter {
+ 	color: #1dcaff;
+ }
+ .content {
+     margin-left: 200px;
+     height: 500px;
+     width: auto;
+     position: relative;
+     background: #f00;
+     overflow: auto;
+     z-index: 1;
+ }
+ .info {
+     width: 1440px;
+     height: 300px;
+     position: relative;
+     background: #f55;
+ }
+
 
 blockquote.twitter-tweet {
   display: inline-block;
@@ -26,16 +70,16 @@ blockquote.twitter-tweet {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
   margin: 10px 5px;
   padding: 0 16px 16px 16px;
-  /*max-width: 468px;*/
+  max-width: 468px;
 }
-/*.twitter-tweet {
+.twitter-tweet {
 	font-family: Arial, sans-serif !important;
     font-size: 14px !important;
     padding: 5px !important;
     background: #eee !important;
     max-width: 300px !important;
     color: #000;
-}*/
+}
 blockquote.twitter-tweet p {
   font-size: 16px;
   font-weight: normal;

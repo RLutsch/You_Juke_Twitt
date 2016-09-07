@@ -4,12 +4,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Bootstrap 101 Template</title>
-
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
+    <title>WeThinkCode_ Meet your Corporate Sponsor Day</title>
+    <link href="css/theme.bootstrap.min.css" rel="stylesheet">
+     <link rel="stylesheet" type="text/css" href="css/ico.css">
+    <link rel="stylesheet" type="text/css" href="css/wtc.css">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -18,10 +16,40 @@
     <![endif]-->
   </head>
   <body>
-    <h1>Hello, world!</h1>
-    <div id="messages"></div>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <!-- <script src="js/bootstrap.min.js"></script> -->
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" style="height:100px; background-color:#fff;">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">
+        <img src="img/wtc_logo.png" width="100" height="100" style="margin-left:100px">
+      </a>
+    </div>
+  </div>
+</nav>
+ <div class="sidebar">
+      <h3>Add your content to this wall</h3>
+      <br>
+      <br>
+      <p><i class="icon-twitter"></i> twitter</p>
+      <div class="well">#WTC</div>
+      <div class="well">#RECODE</div>
+    </div>
+    <!-- Page Content -->
+    <div class="container">
+   
+        <div class="row">
+        <!-- <div class="col-lg-3">
+          <h1>Hello world</h1>
+        </div> -->
+            <div class="col-lg-12" style="margin-top:10px">
+              <div id="messages"></div>
+            </div>
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
+
+
     <script src="/socket.io/socket.io.js"></script>
       <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -43,7 +71,7 @@
 
             socket.on('tweet', function(tweet){
               // Prepend the tweet.
-              $messages.prepend('<div class="col-sm-4"><blockquote class="twitter-tweet">' + tweet.name + ": <br /> " + tweet.text + '</blockquote></div>');
+              $messages.prepend('<div class="col-sm-4"><blockquote class="twitter-tweet">' + tweet.text + " <br /> <br>- " + tweet.name + '(<a href="https://twitter.com/' + tweet.username + '">@' + tweet.username + '</a>)</blockquote></div>');
               $messages.masonry( 'reloadItems' );
               $messages.masonry( 'layout' );
 
