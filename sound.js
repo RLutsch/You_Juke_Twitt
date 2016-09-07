@@ -1,15 +1,36 @@
 SC.initialize({
-                client_id: '1698f61ef0bd9cf032d6bf076e745e5f'
-                });
-
-                SC.get('/tracks', {
-q: 'buskers', license: 'cc-by-sa'
-}).then(function(tracks) {
-                  console.log(tracks);
-                  var track = tracks[0]['uri'].split('/');
-                  SC.stream('/' + track[3] + '/' + track[4]).then(function(player){
-                        player.play();
-                  console.log(player.on('finish', document.write("finish")));
-                  document.write("pass");
+	client_id: '1698f61ef0bd9cf032d6bf076e745e5f'
 });
-                });
+
+var	current_song;
+
+window.onload = function () {
+	search_song("Hallo");
+}
+
+function search_song(search)
+{
+	console.log("Searching");
+	SC.get('/tracks', {q: search}).then(function (tracks)
+		{
+			var song = tracks[0];
+			console.log(song);
+			playtrack(song.id);
+		});
+}
+
+function playtrack(id)
+{
+	SC.stream('/tracks/' + id).then(
+	function (song)
+	{
+		if (current_song)
+		{
+			current_song.stop();
+			document.append("stop");
+		}
+		current_song = song;
+		current_song.play();
+		console.log("Playing");
+	});
+}
