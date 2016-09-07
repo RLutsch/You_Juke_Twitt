@@ -29,5 +29,11 @@ function playtrack(id)
 		current_song = song;
 		current_song.play();
 		console.log("Playing");
+		current_song.on('finish', next);
 	});
+}
+
+function next()
+{
+	console.log("Stopped");
 }
