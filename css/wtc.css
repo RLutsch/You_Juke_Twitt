@@ -1,0 +1,14 @@
+.side {
+	background-color: blue;
+}
+.main {
+	/*background-color: blue;*/
+}
+body {
+	background-image: url('../img/wtc_bg.jpg');
+	background-size: cover;
+}
+h1 {
+	text-align: center;
+	color: #fff;
+}
