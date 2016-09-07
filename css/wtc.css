@@ -30,6 +30,8 @@ h1 {
     top: 0;
     bottom: 0;
     margin-left: 20px;
+   	/*border-style: solid;*/
+    border-right: thick solid #4e5d6c;
  }
  .sidebar h3 {
  	text-align: center;
@@ -55,7 +57,16 @@ h1 {
      position: relative;
      background: #f55;
  }
+#credits {
+   position:fixed;
+   bottom:0;
+   width: 300px;
+}
 
+.under {
+	 text-decoration: underline;
+	 width: 100%;
+}
 
 blockquote.twitter-tweet {
   display: inline-block;
