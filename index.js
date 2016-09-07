@@ -22,7 +22,7 @@ var T = new Twit({
 });
 
 var stream = T.stream("statuses/filter", {
-    track: "#wtc_request"
+    track: "#wtc_request, #highschoolin5words"
 });
 
 stream.on("tweet", function(status) {
