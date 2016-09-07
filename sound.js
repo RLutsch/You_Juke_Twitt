@@ -4,14 +4,16 @@ SC.initialize({
 
 var	current_song;
 
-window.onload = function () {
-	search_song("Hallo");
-}
+//window.onload = function () {
+//	search_song(tweet.text);
+//}
 
 function search_song(search)
 {
 	console.log("Searching");
-	SC.get('/tracks', {q: search}).then(function (tracks)
+	var sound = search.split("#");
+	console.log(sound[0].trim());
+	SC.get('/tracks', {q: sound[0].trim()}).then(function (tracks)
 		{
 			var song = tracks[0];
 			console.log(song);
@@ -24,11 +26,6 @@ function playtrack(id)
 	SC.stream('/tracks/' + id).then(
 	function (song)
 	{
-		if (current_song)
-		{
-			current_song.stop();
-			document.append("stop");
-		}
 		current_song = song;
 		current_song.play();
 		console.log("Playing");

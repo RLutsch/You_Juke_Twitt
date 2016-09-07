@@ -22,7 +22,7 @@ var T = new Twit({
 });
 
 var stream = T.stream("statuses/filter", {
-    track: "#Trump"
+    track: "#wtc_request"
 });
 
 stream.on("tweet", function(status) {

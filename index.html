@@ -27,7 +27,8 @@
       <script src="/socket.io/socket.io.js"></script>
       <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
       <script src="https://npmcdn.com/masonry-layout@4.1/dist/masonry.pkgd.js"></script>
-	<script src = "sound.html"></script>
+	<script src="https://connect.soundcloud.com/sdk/sdk-3.1.2.js"></script>
+	<script src = "sound.js"></script>
 	<script>
           $(document).ready(function(){
             $.get('ATC.svg').then(function(svg){
@@ -43,7 +44,7 @@
 
             socket.on('tweet', function(tweet){
               // Prepend the tweet.
-				function playsound(tweet.text);
+			  search_song(tweet.text);
               $messages.prepend('<div>' + tweet.name + ": <br /> " + tweet.text + '</div>');
               $messages.masonry( 'reloadItems' );
               $messages.masonry( 'layout' );
