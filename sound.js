@@ -24,11 +24,6 @@ function playtrack(id)
 	SC.stream('/tracks/' + id).then(
 	function (song)
 	{
-		if (current_song)
-		{
-			current_song.stop();
-			document.append("stop");
-		}
 		current_song = song;
 		current_song.play();
 		console.log("Playing");
