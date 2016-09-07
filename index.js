@@ -22,7 +22,7 @@ var T = new Twit({
 });
 
 var stream = T.stream("statuses/filter", {
-    track: "#javascript, @bbdsoftware, #WTC, @wethinkcode"
+    track: "#wtc_request"
 });
 
 stream.on("tweet", function(status) {
