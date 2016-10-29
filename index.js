@@ -22,7 +22,7 @@ var T = new Twit({
 });
 
 var stream = T.stream("statuses/filter", {
-    track: "#wtc_request, #WTC_REQUEST, #WTC, #WeThinkCode_, #ReCode, #recode"
+    track: "#wtcblink"
 });
 
 stream.on("tweet", function(status) {
@@ -30,7 +30,17 @@ stream.on("tweet", function(status) {
          name: status.user.screen_name,
          text: status.text,
          created_at: status.created_at,
+         
     });
+
+var myArr = status.text.split(' ')
+
+    for (var i = 0; i < myArr.length; ++i) {
+      if (myArr[i] == 'on') {
+        console.log('on')
+      }
+      console.log('value at index [' + i + '] is: [' + myArr[i] + ']');
+    }
 
     io.emit("tweet", {
         username: status.user.screen_name,
