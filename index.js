@@ -3,6 +3,11 @@ var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
+
+var gpio = require('rpi-gpio');
+
+gpio.setup(21, DIR_OUT, write);
+
 app.use(express.static(__dirname));
 app.get('/', function(req, res){
   res.sendfile('index.html');
@@ -38,6 +43,13 @@ var myArr = status.text.split(' ')
     for (var i = 0; i < myArr.length; ++i) {
       if (myArr[i] == 'on') {
         console.log('on')
+        gpio.setup(21, DIR_OUT, write);
+        function write() {
+          gpio.write(21, true, function(err) {
+            if (err) throw err;
+
+          });
+        }
       }
       console.log('value at index [' + i + '] is: [' + myArr[i] + ']');
     }
