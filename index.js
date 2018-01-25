@@ -4,9 +4,9 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
 
-var gpio = require('rpi-gpio');
+//var gpio = require('rpi-gpio');
 
-gpio.setup(21, DIR_OUT, write);
+//gpio.setup(21, DIR_OUT, write);
 
 app.use(express.static(__dirname));
 app.get('/', function(req, res){
@@ -27,7 +27,7 @@ var T = new Twit({
 });
 
 var stream = T.stream("statuses/filter", {
-    track: "#wtcblink"
+   track: "#wethinkcode"
 });
 
 stream.on("tweet", function(status) {
@@ -35,7 +35,7 @@ stream.on("tweet", function(status) {
          name: status.user.screen_name,
          text: status.text,
          created_at: status.created_at,
-         
+
     });
 
 var myArr = status.text.split(' ')
@@ -43,11 +43,10 @@ var myArr = status.text.split(' ')
     for (var i = 0; i < myArr.length; ++i) {
       if (myArr[i] == 'on') {
         console.log('on')
-        gpio.setup(21, DIR_OUT, write);
+  //      gpio.setup(21, DIR_OUT, write);
         function write() {
           gpio.write(21, true, function(err) {
             if (err) throw err;
-
           });
         }
       }

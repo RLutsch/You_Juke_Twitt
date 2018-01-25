@@ -33,23 +33,18 @@
       <br>
       <p><i class="icon-twitter"></i> twitter</p>
       <div class="well">#WTC</div>
-      <div class="well">#wtc_request</div>
+      <div class="well">
+        
+        <input type="text" name="filter">#wtc_request</div>
+
       <div id="credits">
-        <p>Credits</p>
-        <div class="well">
-        <h4 class="under">Front-end</h4>
-        <p>Junius Lekgwara</p>
-        <br>
-        <h4 class="under">Back-end</h4>
-        <p>Ross Lutsch <br>
-        Victor Verdun Van Der Watt</p>
-        With special thanks to Mike Geyser (BBD), for helping us with node js streamer.
+
         </div>
       </div>
     </div>
     <!-- Page Content -->
     <div class="container">
-   
+
         <div class="row">
         <!-- <div class="col-lg-3">
           <h1>Hello world</h1>
@@ -70,8 +65,8 @@
       <script src="https://npmcdn.com/masonry-layout@4.1/dist/masonry.pkgd.js"></script>
       <script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 	<script src="https://connect.soundcloud.com/sdk/sdk-3.1.2.js"></script>
-	<script src = "sound.js"></script> 
-  <script src="js/wtc.js"></script> 
+	<script src = "sound.js"></script>
+  <script src="js/wtc.js"></script>
 	<script>
           $(document).ready(function(){
             $.get('ATC.svg').then(function(svg){
@@ -87,8 +82,8 @@
 
             socket.on('tweet', function(tweet){
               // Prepend the tweet.
-              search_song(tweet.text);
-				$messages.prepend('<div class="col-sm-4"><blockquote class="twitter-tweet">' + proc(tweet.text) + " <br /> <br>- " + tweet.name + '(<a class="hash_tag" href="https://twitter.com/' + tweet.username + '">@' + tweet.username + '</a>)</blockquote></div>');
+            //  search_song(tweet.text);
+				      $messages.prepend('<div class="col-sm-4"><blockquote class="twitter-tweet">' + proc(tweet.text) + " <br /> <br>- " + tweet.name + '(<a class="hash_tag" href="https://twitter.com/' + tweet.username + '">@' + tweet.username + '</a>)</blockquote></div>');
               $messages.masonry( 'reloadItems' );
               $messages.masonry( 'layout' );
 
