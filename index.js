@@ -19,10 +19,10 @@ http.listen(3000, function(){
 
 var Twit = require("twit");
 var T = new Twit({
-  consumer_key: "K0v4N9SwMjVDmbxcuF97WPZcy",
-  consumer_secret: "CNkhoLBGzR5xXP5v4v4NXywjMXFWJS6xrOPq00XehdCgGyOYXk",
-  access_token: "770973461728690177-1Xip2lk5fIzTkNci4OuwMtyyldCMeix",
-  access_token_secret: "6I5jqHtEocJHTuMQRzeSzaJNNDsVtfYk3yWKTvqUSYexf",
+  consumer_key: "",
+  consumer_secret: "",
+  access_token: "",
+  access_token_secret: "",
   timeout_ms: 60000
 });
 
